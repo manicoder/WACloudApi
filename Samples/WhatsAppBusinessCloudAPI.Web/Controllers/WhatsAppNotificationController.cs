@@ -11,7 +11,7 @@ using WhatsappBusiness.CloudApi.Webhook;
 
 namespace WhatsAppBusinessCloudAPI.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("webhooks")]
     [ApiController]
     public class WhatsAppNotificationController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace WhatsAppBusinessCloudAPI.Web.Controllers
         private readonly IWhatsAppBusinessClient _whatsAppBusinessClient;
         private readonly WhatsAppBusinessCloudApiConfig _whatsAppConfig;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private string VerifyToken = "<YOUR VERIFY TOKEN STRING>";
+        private string VerifyToken = "mlttoys";
         private List<TextMessage> textMessage;
         private List<AudioMessage> audioMessage;
         private List<ImageMessage> imageMessage;
@@ -43,7 +43,7 @@ namespace WhatsAppBusinessCloudAPI.Web.Controllers
 
         // Required step for configuring webhook to WhatsApp Cloud API
         // Make sure the verifytoken matches with the hubverifytoken returned from whatsapp.
-        [HttpGet("receive/TextMessage")]
+        [HttpGet]
         public ActionResult<string> ConfigureWhatsAppMessageWebhook([FromQuery(Name = "hub.mode")] string hubMode,
                                                                     [FromQuery(Name = "hub.challenge")] int hubChallenge,
                                                                     [FromQuery(Name = "hub.verify_token")] string hubVerifyToken)
@@ -60,7 +60,7 @@ namespace WhatsAppBusinessCloudAPI.Web.Controllers
             return Ok(hubChallenge);
         }
 
-        [HttpPost("receive/TextMessage")]
+        [HttpPost]
         public async Task<IActionResult> ReceiveWhatsAppTextMessage([FromBody] dynamic messageReceived)
         {
             try

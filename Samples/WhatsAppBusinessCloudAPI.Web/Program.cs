@@ -17,12 +17,12 @@ builder.Services.Configure<WhatsAppBusinessCloudApiConfig>(options =>
 });
 
 WhatsAppBusinessCloudApiConfig whatsAppConfig = new WhatsAppBusinessCloudApiConfig();
-whatsAppConfig.WhatsAppBusinessPhoneNumberId = builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["WhatsAppBusinessPhoneNumberId"];
-whatsAppConfig.WhatsAppBusinessAccountId = builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["WhatsAppBusinessAccountId"];
-whatsAppConfig.WhatsAppBusinessId = builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["WhatsAppBusinessId"];
-whatsAppConfig.AccessToken = builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["AccessToken"];
-whatsAppConfig.AppName = builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["AppName"];
-whatsAppConfig.Version = builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["Version"];
+whatsAppConfig.WhatsAppBusinessPhoneNumberId = "473703699156488";//builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["WhatsAppBusinessPhoneNumberId"];
+whatsAppConfig.WhatsAppBusinessAccountId = "470601429462218";//builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["WhatsAppBusinessAccountId"];
+whatsAppConfig.WhatsAppBusinessId = "1265828311254745"; //builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["WhatsAppBusinessId"];
+whatsAppConfig.AccessToken = "EAARZCQ57WxtkBOZBpMfOH4lwPaYQhcHzZAQ6XI8mZBheJZAxjoERdrT6RBqf47nEaHUV9QiTeUHfJUM1v6vdYvJHJhhRIgixJgsJzTWBq3MVCsLUOfNk5dnx2PwU1wEvdFteFaTql5ETZC9BNdczEeVeXNo12suJUyOprZCmVbWCmeHHi6XHynEKmZA9wREQ9GZCuBImw2y0N9ZAV5jaxZC2oGZBtJhIkigwss9NXfHfkjIrLMkZD";//builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["AccessToken"];
+whatsAppConfig.AppName = "WABussinessAPI";//builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["AppName"];
+whatsAppConfig.Version = "v20.0";//builder.Configuration.GetSection("WhatsAppBusinessCloudApiConfiguration")["Version"];
 
 builder.Services.AddWhatsAppBusinessCloudApiService(whatsAppConfig);
 
